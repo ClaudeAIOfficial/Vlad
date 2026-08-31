@@ -1,29 +1,26 @@
-# VLAD Website
+# Vlad AI Website
 
-A clean single-page frontend inspired by the supplied reference.
+This version has no wallet connection or visitor login.
 
-## Files
-- `index.html` — page structure
-- `styles.css` — sky, grass, low-poly scene, chat UI
-- `script.js` — basic chat panel interactions
+## What works
+- Ask Vlad anything in the chat box
+- Real AI replies through a server-side API route
+- Conversation memory for the current browser session
+- Vlad's latest answer appears in the speech bubble
+- Microphone input in supported browsers
+- Optional browser text-to-speech
+- "WHAT IS VLAD TRADING" asks Vlad directly
 
-## Vlad character
-The supplied Vlad character is already installed at `assets/vlad-character.png`.
+## Deploy on Vercel
+1. Upload this project to Vercel.
+2. In Vercel → Project Settings → Environment Variables, add:
+   - `OPENAI_API_KEY` = your OpenAI API key
+   - `OPENAI_MODEL` = `gpt-5.4-mini` (optional; this is already the default)
+3. Redeploy.
 
-Example:
-```html
-<img class="vlad-character" src="assets/vlad.png" alt="Vlad">
-```
+Visitors do **not** need to connect a wallet, create an account, or enter an API key.
+The OpenAI key stays on the server and is never included in the browser code.
 
-Then add:
-```css
-.vlad-character{
-  width:300px;
-  max-height:420px;
-  object-fit:contain;
-  filter:drop-shadow(0 18px 14px rgba(0,0,0,.18));
-}
-```
-
-## Run
-Open `index.html` directly, or deploy the folder to Vercel / Netlify.
+## Important
+Do not paste an OpenAI API key directly into `index.html` or other frontend JavaScript.
+For a public launch, add proper rate limiting / abuse protection so strangers cannot run up API usage.
