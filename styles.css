@@ -1,0 +1,157 @@
+
+:root{
+  --cream:#f3ead5;
+  --cream2:#e9dcc0;
+  --ink:#171717;
+  --muted:#77715f;
+  --grass:#54bd05;
+  --grass-dark:#369100;
+  --sky1:#0ca7dc;
+  --sky2:#b8d9e9;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;font-family:"DM Sans",system-ui,sans-serif;color:var(--ink);overflow:hidden}
+button,input{font:inherit}
+
+.scene{
+  position:relative;
+  min-height:100svh;
+  overflow:hidden;
+  background:linear-gradient(to bottom,var(--sky1) 0%,#59badf 30%,var(--sky2) 55%,#b9d7e3 58%);
+}
+
+.sky{position:absolute;inset:0 0 45% 0;overflow:hidden}
+.cloud{
+  position:absolute;height:28px;background:rgba(255,255,255,.63);border-radius:60px;filter:blur(1.5px);
+  box-shadow:38px 4px 0 7px rgba(255,255,255,.57),74px -4px 0 2px rgba(255,255,255,.5);
+}
+.c1{width:84px;left:-20px;top:78px;transform:scale(1.25)}
+.c2{width:120px;left:17%;top:30%;transform:scale(.9)}
+.c3{width:110px;right:21%;top:26%;transform:scale(1.25)}
+.c4{width:80px;right:2%;top:8%;transform:scale(.8)}
+
+.topbar{
+  position:absolute;z-index:10;top:0;left:0;right:0;
+  display:flex;justify-content:space-between;align-items:center;padding:18px 20px;
+}
+.brand,.top-link{
+  letter-spacing:.24em;font-size:12px;font-weight:700;color:white;text-decoration:none;
+  text-shadow:0 1px 12px rgba(0,0,0,.12)
+}
+.top-link{background:none;border:0;border-bottom:1px solid rgba(255,255,255,.65);padding:0 0 3px;cursor:pointer}
+
+.grass{
+  position:absolute;left:-5%;right:-5%;bottom:-6%;height:52%;
+  background:
+    radial-gradient(circle at 50% 8%,rgba(255,255,255,.13),transparent 26%),
+    linear-gradient(to bottom,#69cf09 0%,#54b901 45%,#3c9f00 100%);
+  transform:perspective(900px) rotateX(60deg);
+  transform-origin:50% 0;
+  box-shadow:0 -4px 12px rgba(22,112,0,.24);
+}
+.grass-texture{
+  position:absolute;inset:0;opacity:.20;
+  background-image:
+    radial-gradient(circle,rgba(255,255,255,.32) 0 1px,transparent 1px),
+    radial-gradient(circle,rgba(0,80,0,.28) 0 1px,transparent 1px);
+  background-size:7px 7px,10px 10px;background-position:0 0,3px 3px;
+}
+.trees{position:absolute;left:0;right:0;top:-8px;height:70px;transform:rotateX(-60deg);transform-origin:50% 0}
+.trees i{
+  position:absolute;left:var(--x);bottom:0;width:42px;height:30px;transform:scale(var(--s));
+  background:#176a16;clip-path:polygon(0 50%,18% 8%,46% 20%,63% 0,100% 37%,80% 80%,40% 100%);
+  filter:drop-shadow(0 8px 3px rgba(0,0,0,.15));
+}
+.trees i::after{content:"";position:absolute;width:5px;height:16px;background:#31581c;left:50%;bottom:-10px}
+
+.hero{position:absolute;z-index:5;inset:0;display:flex;flex-direction:column;align-items:center;pointer-events:none}
+.speech-card{
+  position:absolute;top:8%;width:min(34vw,590px);min-width:360px;
+  background:var(--cream);padding:19px 28px;border-radius:16px;text-align:center;
+  font-size:14px;line-height:1.5;box-shadow:0 6px 18px rgba(45,62,66,.12);
+}
+.character-wrap{
+  position:absolute;left:50%;top:51%;transform:translate(-50%,-50%);
+  display:flex;flex-direction:column;align-items:center;
+}
+.character-placeholder{
+  width:230px;height:310px;display:grid;place-items:center;position:relative;
+  border:2px dashed rgba(255,255,255,.6);border-radius:48% 48% 32% 32%;
+  background:rgba(255,255,255,.09);backdrop-filter:blur(1px);
+  color:white;text-align:center;letter-spacing:.13em;font-size:12px;font-weight:700;
+  text-shadow:0 2px 10px rgba(0,0,0,.25);
+}
+.placeholder-orb{
+  position:absolute;width:155px;height:155px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.6),rgba(255,255,255,.08) 50%,rgba(10,80,75,.18));
+  box-shadow:inset 0 0 45px rgba(255,255,255,.22),0 12px 40px rgba(0,0,0,.08)
+}
+.character-placeholder span{position:relative;z-index:2}
+.shadow{
+  width:230px;height:34px;border-radius:50%;
+  background:rgba(19,90,0,.34);filter:blur(7px);margin-top:-8px;
+}
+
+.chatbar{
+  position:absolute;z-index:12;bottom:18px;left:50%;transform:translateX(-50%);
+  display:grid;grid-template-columns:52px minmax(280px,470px) 76px 52px;gap:10px;align-items:center;
+}
+.chatbar input{
+  height:54px;border:0;outline:0;background:var(--cream);padding:0 20px;border-radius:16px;
+  box-shadow:0 5px 14px rgba(23,74,15,.16);font-size:13px
+}
+.circle-btn,.ask-btn{
+  height:54px;border:0;background:var(--cream);cursor:pointer;box-shadow:0 5px 14px rgba(23,74,15,.16);
+}
+.circle-btn{width:54px;border-radius:50%;font-size:13px}
+.ask-btn{border-radius:16px;color:#7e8e51;letter-spacing:.12em;font-size:12px;font-weight:700}
+
+.panel{
+  position:absolute;z-index:20;right:24px;top:76px;width:min(380px,calc(100vw - 48px));height:460px;
+  background:rgba(244,237,219,.92);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.45);
+  border-radius:22px;box-shadow:0 18px 60px rgba(0,0,0,.18);
+  transform:translateX(calc(100% + 50px));transition:.35s ease;overflow:hidden
+}
+.panel.open{transform:translateX(0)}
+.panel-head{height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 18px;border-bottom:1px solid rgba(0,0,0,.08);font-weight:700;letter-spacing:.15em}
+.panel-head button{border:0;background:transparent;font-size:26px;cursor:pointer}
+.messages{height:calc(100% - 62px);overflow:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
+.msg{max-width:86%;padding:12px 14px;border-radius:14px;font-size:13px;line-height:1.45}
+.msg.user{align-self:flex-end;background:#202b22;color:white}
+.msg.vlad{align-self:flex-start;background:white}
+
+.toast{
+  position:absolute;z-index:30;left:50%;top:70px;transform:translate(-50%,-120px);
+  background:#111;color:#fff;padding:12px 18px;border-radius:12px;font-size:13px;
+  transition:.3s ease;box-shadow:0 8px 24px rgba(0,0,0,.2)
+}
+.toast.show{transform:translate(-50%,0)}
+
+@media (max-width:760px){
+  .speech-card{top:11%;width:84vw;min-width:0;font-size:12px}
+  .character-wrap{top:52%;transform:translate(-50%,-50%) scale(.78)}
+  .chatbar{width:calc(100vw - 24px);grid-template-columns:46px 1fr 64px 46px;gap:7px}
+  .chatbar input,.circle-btn,.ask-btn{height:48px}
+  .circle-btn{width:48px}
+  .topbar{padding:14px}
+  .brand,.top-link{font-size:9px}
+}
+
+
+/* Vlad character */
+.vlad-character{
+  display:block;
+  width:clamp(210px, 22vw, 340px);
+  max-height:56vh;
+  object-fit:contain;
+  user-select:none;
+  -webkit-user-drag:none;
+  filter:drop-shadow(0 18px 13px rgba(20,70,0,.22));
+  animation:vladIdle 3.8s ease-in-out infinite;
+  transform-origin:50% 100%;
+}
+@keyframes vladIdle{
+  0%,100%{transform:translateY(0) rotate(0deg)}
+  50%{transform:translateY(-5px) rotate(.25deg)}
+}

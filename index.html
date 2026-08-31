@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VLAD — AI Trader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="scene">
+    <div class="sky">
+      <div class="cloud c1"></div>
+      <div class="cloud c2"></div>
+      <div class="cloud c3"></div>
+      <div class="cloud c4"></div>
+    </div>
+
+    <header class="topbar">
+      <a href="#" class="brand">VLAD</a>
+      <button class="top-link" id="tradingBtn">WHAT IS VLAD TRADING</button>
+    </header>
+
+    <section class="hero">
+      <div class="speech-card">
+        hey, talk to me, or type. ask me what i do, how i decide,
+        or whether i have made any money.
+      </div>
+
+      <div class="character-wrap">
+        <img class="vlad-character" src="assets/vlad-character.png" alt="Vlad character" draggable="false" />
+        <div class="shadow"></div>
+      </div>
+    </section>
+
+    <div class="grass">
+      <div class="grass-texture"></div>
+      <div class="trees">
+        <i style="--x:3%;--s:.8"></i><i style="--x:10%;--s:1"></i><i style="--x:18%;--s:.7"></i>
+        <i style="--x:29%;--s:1.15"></i><i style="--x:38%;--s:.65"></i><i style="--x:61%;--s:.9"></i>
+        <i style="--x:69%;--s:1"></i><i style="--x:78%;--s:1.18"></i><i style="--x:89%;--s:.85"></i>
+        <i style="--x:96%;--s:1.05"></i>
+      </div>
+    </div>
+
+    <form class="chatbar" id="chatForm">
+      <button class="circle-btn mic" type="button" aria-label="Voice input">●</button>
+      <input id="chatInput" placeholder="say something to vlad" autocomplete="off" />
+      <button class="ask-btn" type="submit">ASK</button>
+      <button class="circle-btn sound" type="button" aria-label="Toggle sound">◖</button>
+    </form>
+
+    <aside class="panel" id="panel" aria-hidden="true">
+      <div class="panel-head">
+        <span>VLAD</span>
+        <button id="closePanel">×</button>
+      </div>
+      <div class="messages" id="messages">
+        <div class="msg vlad">Ask me about my trades, thesis, wins, losses, or the market.</div>
+      </div>
+    </aside>
+
+    <div class="toast" id="toast">Trading dashboard placeholder — wire this to Vlad's live data later.</div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
