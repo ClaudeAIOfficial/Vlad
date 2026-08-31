@@ -24,3 +24,11 @@ The OpenAI key stays on the server and is never included in the browser code.
 ## Important
 Do not paste an OpenAI API key directly into `index.html` or other frontend JavaScript.
 For a public launch, add proper rate limiting / abuse protection so strangers cannot run up API usage.
+
+
+## Vercel build fix
+The previous `vercel.json` contained a `functions` pattern that Vercel rejected.
+This version removes that pattern. Vercel will automatically detect `api/chat.js`
+as a Serverless Function.
+
+Deploy the project root exactly as-is. Do not set the Root Directory to `/api`.
