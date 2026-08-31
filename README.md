@@ -16,3 +16,8 @@ Optional:
 `OPENAI_MODEL` = `gpt-5.6-luna`
 
 Important: after adding/changing an environment variable, redeploy the project.
+
+
+Added a top-right developer link:
+- DEV: @JohannKerbrat
+- Links to https://x.com/JohannKerbrat
